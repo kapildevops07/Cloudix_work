@@ -1,9 +1,10 @@
 resource_group_name      = "mypocportal"
 location                 = "westus2"
 event_hub_namespace_name = "poc-hubnamespace2022"
-sku                      = "Basic"
+sku                      = "Standard"
 throughput_units         = "1"
 
+#Event Hub Details
 event_hub_details = [
   {
     eventhub_name                     = "hub01"
@@ -18,3 +19,18 @@ event_hub_details = [
   }
 ]
 
+#Consumer Group Details
+event_hub_consumergroup_info = [
+  {
+    consumergroup_name     = "Consumer01"
+    eventhub_eventhub_name = "hub01"
+  },
+  {
+    consumergroup_name     = "Consumer02"
+    eventhub_eventhub_name = "hub02"
+  },
+  {
+    consumergroup_name     = "Consumer03"
+    eventhub_eventhub_name = "hub02"
+  }
+]

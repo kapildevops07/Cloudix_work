@@ -35,4 +35,11 @@ variable "event_hub_details" {
   default = []
 }
 
-
+variable "event_hub_consumergroup_info" {
+  description = "This variable holds Event Hubs Consumer Group details"
+  type = list(object({
+    consumergroup_name     = string,
+    eventhub_eventhub_name = string,
+  }))
+  default = []
+}

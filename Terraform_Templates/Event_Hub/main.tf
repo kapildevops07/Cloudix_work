@@ -14,3 +14,11 @@ resource "azurerm_eventhub" "paloalto_eventhub" {
   partition_count     = var.event_hub_details[count.index].eventhub_partition_count
   message_retention   = var.sku == "Basic" ? 1 : var.event_hub_details[count.index].eventhub_message_retention_period
 }
+
+resource "azurerm_eventhub_consumer_group" "paloalto_consumergroup" {
+  count               = length(var.event_hub_consumergroup_info)
+  name                = var.event_hub_consumergroup_info[count.index].consumergroup_name
+  namespace_name      = azurerm_eventhub_namespace.paloalto_eventhub_namespace.name
+  eventhub_name       = var.event_hub_consumergroup_info[count.index].eventhub_eventhub_name
+  resource_group_name = var.resource_group_name
+}
