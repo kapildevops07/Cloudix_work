@@ -1,0 +1,8 @@
+**/**/.terraform
+
+#Ignore .tfstate files
+*.tfstate
+*.tfstate.*
+
+#Ignore locking files
+*.hcl
